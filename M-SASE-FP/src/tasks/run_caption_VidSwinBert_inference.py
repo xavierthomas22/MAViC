@@ -227,7 +227,6 @@ def main(args):
     bert_model, config, tokenizer = get_bert_model(args)
     # build SwinBERT based on training configs
     vl_transformer = VideoTransformer(args, config, swin_model, bert_model) 
-    vl_transformer.freeze_backbone(freeze=args.freeze_backbone)
 
     # load weights for inference
     logger.info(f"Loading state dict from checkpoint {args.resume_checkpoint}")
@@ -241,6 +240,7 @@ def main(args):
 
     vl_transformer.to(args.device)
     vl_transformer.eval()
+    vl_transformer.freeze_backbone(freeze=args.freeze_backbone)
 
     tensorizer = build_tensorizer(args, tokenizer, is_train=False)    
     
