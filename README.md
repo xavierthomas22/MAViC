@@ -10,4 +10,4 @@ Through this work we explore active learning for video captioning, and have intr
 
 1. run_caption_VidSwinBert.py using deafult parameters, using 5% data
 2. run_caption_VidSwinBert_inference.py using  best checkpiont to get top_selected_samples.pkl as unlabelled indices
-3. Add above indeices with previous train indices and do step 1
+3. Add above indices with previous train indices and do step 1
