@@ -8,6 +8,8 @@ Through this work we explore active learning for video captioning, and have intr
 
 ## To Run MAViC
 
-1. run_caption_VidSwinBert.py using deafult parameters, using 5% data
-2. run_caption_VidSwinBert_inference.py using  best checkpiont to get top_selected_samples.pkl as unlabelled indices
-3. Add above indices with previous train indices and do step 1
+First, choose the approach from (SE, M-SASE, M-SASE-MP, M-SASE-FP)
+1. cd MAViC/{approach}/src/tasks/
+1. Run run_caption_VidSwinBert.py using deafult parameters, using 5% data
+2. Run run_caption_VidSwinBert_inference.py using the best checkpiont to get top_selected_samples.pkl, i.e. indices frome the unlabelled set.
+3. Add the above indices with the previous train indices and run step 1
