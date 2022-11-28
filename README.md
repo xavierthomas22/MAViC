@@ -8,6 +8,6 @@ Through this work we explore active learning for video captioning, and have intr
 
 ## To Run MAViC
 
-1. Please refer https://github.com/microsoft/SwinBERT#download to obtain the datasets and pre-trained models.
-2. Get x% of data
-3. Get the required Acquisition Function Scores
+1. run_caption_VidSwinBert.py using deafult parameters, using 5% data
+2. run_caption_VidSwinBert_inference.py using  best checkpiont to get top_selected_samples.pkl as unlabelled indices
+3. Add above indeices with previous train indices and do step 1
