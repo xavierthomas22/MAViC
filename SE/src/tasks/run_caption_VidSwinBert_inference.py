@@ -103,8 +103,10 @@ def inference(args, video_path, model, tokenizer, tensorizer):
         }
         tic = time.time()
         outputs = model(**inputs)
-
-    return outputs[2]
+        probs = torch.exp(outputs[1])
+        acquisation_score = scipy.stats.entropy(probs, axis=1)
+        
+    return acquisation_score
 
 def check_arguments(args):
     # shared basic checks
