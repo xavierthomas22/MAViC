@@ -22,7 +22,8 @@ def cluster_fp(files, embeddings, K=300, M=5, epsilon=0.015):
         index.add(emb)
         D, I = index.search(kmeans.centroids, M)
         for i in range(M):
-            fp_emb = emb + epsilon*embeddings[I[i]]
+            distance = embeddings[I[i]]-emb
+            fp_emb = (1-epsilon) * emb + epsilon*(distance/torch.norm(distance))
             torch.save(fp_emb,f'{file}[:-4]_fp_{i}.bin')
 
 folder = '../datasets/MSRVTT-V2/videos/'
